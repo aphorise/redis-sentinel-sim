@@ -1,0 +1,17 @@
+{
+	"name": "redis-sentinel-sim",
+	"version": "0.0.1",
+	"author": "aphorise",
+	"description": "Testing / simulating interval based IO to a Redis-master via Sentinel where a switch over is expected to be made to a slave.",
+	"main": "index.js",
+	"scripts": { "test": "echo \"Error: no tests specified in package.json\" && exit 1" },
+	"repository": "",
+	"keywords": [ "node.js", "eclipse", "nodeclipse"],
+	"readmeFilename": "README.md",
+	"repository": { "type": "git", "url": "ssh://git@github.com:aphorise/redis-sentinel-sim.git" },
+	"dependencies":
+	{
+		"redis": "^0.12.1",
+		"redis-sentinel": "^0.3.2"
+	}
+}
