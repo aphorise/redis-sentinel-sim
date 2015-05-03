@@ -5,7 +5,7 @@ This simulation, authored in ```Node.js``` scripting language, is intended to de
 
 All three (Master, Slave, Sentinel) Redis instances should be setup and during tests the Redis-Master instance will be stopped (```service redis_master stop```) with the expectation that switch-overs would occure seemlessly.
 
-The ```q_``` prefix examples are more complete utalising __offline-queuing__ where all ```.set``` requests are stacked onto an array for later flushing to redis. ```q_blessed``` uses the __T__erminal-__U__ser-__I__nterface module to mimic ncurses like layout and screening.
+The ```q_``` prefix examples are more complete utalising __offline-queuing__ where all ```.set``` requests are stacked onto an array for later flushing to redis. ```q_blessed``` uses the *T*erminal-*U*ser-*I*nterface module to mimic ncurses like layout and screening.
 
 
 ## Sentinel Configuration
