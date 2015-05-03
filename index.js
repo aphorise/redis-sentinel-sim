@@ -7,6 +7,7 @@ try
 {
 	redis = require("redis");
 	sentinel = require('redis-sentinel');
+	redis.debug_mode = false;
 }
 catch (e)
 {
@@ -35,12 +36,10 @@ setInterval(function(){ redis_loop_write(); }, 1000).unref();
 
 function init_redis()
 {
-	try {
-	client = sentinel.createClient(endpoints, masterName, {/* standard ops - nothing special */} ); 
-	} catch (e){ console.log("\n\n\n------------\n"+e); }
+	try { client = sentinel.createClient(endpoints, masterName, {/* standard ops - nothing special */} ); }
+	catch (e){ console.log("\n\n\n------------\n"+e); }
 	client.on("error", function() { console.log("\033[31mERROR:\033[0m Connecting to \033[1mREDIS\033[0m via sentinel."+sL); });
 	client.on("connect", function() { console.log("\033[36mSuccess! Connected\033[0m to\033[1m Redis\033[0m on \033[1m"+ client.connectionOption.host +"\033[0m:\033[1m"+ client.connectionOption.port +"\033[0m"+sL); });
-	redis.debug_mode = false;
 }
 
 exports.print = function (err, reply) 
@@ -61,7 +60,7 @@ function redis_loop_write()
 		client.get("foo", function (err, reply)
 		{
 			if (err) { console.log("ERROR w/ GET "+err) ; /* return process.exit(1); */ }
-			console.log("\033[36mGOT\033[0m:<- "+reply.toString());
+			else console.log("\033[36mGOT\033[0m:<- "+ (reply === null) ? reply : reply.toString());
 		});
 	}
 	catch(e) { console.log("ISSUE - GETTING");}

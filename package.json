@@ -11,7 +11,9 @@
 	"repository": { "type": "git", "url": "ssh://git@github.com:aphorise/redis-sentinel-sim.git" },
 	"dependencies":
 	{
+		"blessed" : "*",
 		"redis": "^0.12.1",
 		"redis-sentinel": "^0.3.2"
 	}
 }
+
